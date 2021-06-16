@@ -1,2 +1,4 @@
 # ossi-d.github.io
-LandingPage - OnePager
+Landingpage with VanillaJS
+
+An exercise to demonstrate DOM manipulation with plain JS.
