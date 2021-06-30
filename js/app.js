@@ -33,6 +33,16 @@ function toggleMenuItemActive(e) {
     e.target.classList.add('is-active');
 }
 
+function scrollToSection(e) {
+
+    allSections.forEach((sectionElement) => {
+        if(sectionElement.getAttribute('data-nav') === e.target.innerText) {
+            document.getElementById(sectionElement.getAttribute('id')).scrollIntoView();
+            console.log(sectionElement.getAttribute('id'));
+        }
+    });
+}
+
 /**
  * End Helper Functions
  * Begin Main Functions
@@ -68,8 +78,7 @@ function setActive() {
 function scrollToAnchor(e) {
 
     toggleMenuItemActive(e);
-
-    console.log(e.target.href);
+    scrollToSection(e);
 }
 
 /**
