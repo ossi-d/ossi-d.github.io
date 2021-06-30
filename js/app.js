@@ -18,6 +18,8 @@
  *
  */
 
+const navigation = document.getElementById('navbar__list');
+const allSections = Array.from(document.querySelectorAll('section'));
 
 /**
  * End Global Variables
