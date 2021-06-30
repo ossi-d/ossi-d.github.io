@@ -35,9 +35,11 @@ function toggleMenuItemActive(e) {
 
 function scrollToSection(e) {
 
+    e.preventDefault();
+
     allSections.forEach((sectionElement) => {
         if(sectionElement.getAttribute('data-nav') === e.target.innerText) {
-            document.getElementById(sectionElement.getAttribute('id')).scrollIntoView();
+            document.getElementById(sectionElement.getAttribute('id')).scrollIntoView({behavior: "smooth", block: "start"});
             console.log(sectionElement.getAttribute('id'));
         }
     });
