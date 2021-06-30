@@ -1,0 +1,133 @@
+/*  */
+
+
+/* Landing Container Styles */
+.landing__container {
+    padding: 1em;
+    text-align: left;
+}
+
+@media only screen and (min-width: 35em){
+    .landing__container {
+        max-width: 50em;
+        padding: 4em;
+    }
+}
+
+section:nth-of-type(even) .landing__container {
+    margin-right: 0;
+    margin-left: auto;
+    text-align: right;
+}
+
+.landing__container {
+    background-color: grey;
+    opacity: 90%;
+    border-radius: 1rem;
+}
+
+.page__header {
+    height: 7rem;
+    color: black;
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 1.2rem;
+}
+
+.navigation li {
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 3rem;
+    padding: 0.5rem;
+}
+
+.navigation li:hover {
+    background-color: black;
+    color: white;
+}
+
+
+
+
+
+/* Background Circles */
+/* Note that background circles are created with psuedo elements before and after */
+/* Circles appear to be random do to use of :nth-of-type psuedo class */
+section:nth-of-type(odd) .landing__container::before {
+    content: '';
+    /*background: rgba(255, 255, 255, 0.187);*/
+
+    background-image: url("../img/vinyl-animation.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.3;
+
+    position: absolute;
+    z-index: -5;
+    width: 20vh;
+    height: 20vh;
+    border-radius: 50%;
+    /*opacity: 0;*/
+    transition: all ease 0.5s;
+}
+
+section:nth-of-type(even) .landing__container::before {
+    content: '';
+    /* background: rgb(255,255,255);
+     background: linear-gradient(0deg, rgba(255,255,255,.1) 0%, rgba(255,255,255,.2) 100%);*/
+
+    background-image: url("../img/vinyl-animation.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.3;
+
+    position: absolute;
+    top: 3em;
+    right: 3em;
+    z-index: -5;
+    width: 10vh;
+    height: 10vh;
+    border-radius: 50%;
+    opacity: 0;
+    transition: all ease 0.5s;
+}
+
+section:nth-of-type(3n) .landing__container::after {
+    content: '';
+    background: rgb(255,255,255);
+    background: linear-gradient(0deg, rgba(255,255,255,.1) 0%, rgba(255,255,255,.2) 100%);
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: -5;
+    width: 10vh;
+    height: 10vh;
+    border-radius: 50%;
+    opacity: 0;
+    transition: all ease 0.5s;
+}
+
+section:nth-of-type(3n + 1) .landing__container::after {
+    content: '';
+    /*background: rgb(255,255,255);
+    background: linear-gradient(0deg, rgba(255,255,255,.1) 0%, rgba(255,255,255,.2) 100%);*/
+
+    background-image: url("../img/vinyl-animation.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.3;
+
+    position: absolute;
+    right: 20vw;
+    bottom: -5em;
+    z-index: -5;
+    width: 15vh;
+    height: 15vh;
+    border-radius: 50%;
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+
