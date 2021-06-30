@@ -27,6 +27,12 @@ const allSections = Array.from(document.querySelectorAll('section'));
  *
  */
 
+function toggleMenuItemActive(e) {
+    const lastActive = document.querySelector('.is-active');
+    lastActive.classList.remove('is-active');
+    e.target.classList.add('is-active');
+}
+
 /**
  * End Helper Functions
  * Begin Main Functions
@@ -59,8 +65,11 @@ function setActive() {
 }
 
 // Scroll to anchor ID using scrollTO event
-function scrollToAnchor() {
+function scrollToAnchor(e) {
 
+    toggleMenuItemActive(e);
+
+    console.log(e.target.href);
 }
 
 /**
@@ -73,5 +82,6 @@ function scrollToAnchor() {
 document.addEventListener('DOMContentLoaded', createNavigation);
 
 // Scroll to section on link click
+document.querySelector('#navbar__list').addEventListener('click', scrollToAnchor)
 
 // Set sections as active
