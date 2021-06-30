@@ -37,13 +37,13 @@ section:nth-of-type(even) .landing__container {
     padding-top: 1.2rem;
 }
 
-.navigation li {
+.navigation li a {
     font-family: 'Fira Sans', sans-serif;
     font-size: 3rem;
     padding: 0.5rem;
 }
 
-.navigation li:hover {
+.navigation li a:hover {
     background-color: black;
     color: white;
 }

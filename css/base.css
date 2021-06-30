@@ -44,3 +44,8 @@ p {
     line-height: 1.6em;
     color: #eee;
 }
+
+a {
+    text-decoration: none;
+    color: black;
+}
