@@ -28,9 +28,11 @@ const allSections = Array.from(document.querySelectorAll('section'));
  */
 
 function toggleMenuItemActive(e) {
-    const lastActive = document.querySelector('.is-active');
-    lastActive.classList.remove('is-active');
-    e.target.tagName === 'A' ? e.target.classList.add('is-active') :  false;
+    if(e.target.tagName === 'A') {
+        const lastActive = document.querySelector('.is-active');
+        lastActive.classList.remove('is-active');
+        e.target.classList.add('is-active');
+    }
 }
 
 function scrollToSection(e) {
@@ -95,3 +97,4 @@ document.addEventListener('DOMContentLoaded', createNavigation);
 document.querySelector('#navbar__list').addEventListener('click', scrollToAnchor)
 
 // Set sections as active
+//document.addEventListener('scroll', scrollPage);
