@@ -30,7 +30,7 @@ const allSections = Array.from(document.querySelectorAll('section'));
 function toggleMenuItemActive(e) {
     const lastActive = document.querySelector('.is-active');
     lastActive.classList.remove('is-active');
-    e.target.classList.add('is-active');
+    e.target.tagName === 'A' ? e.target.classList.add('is-active') :  false;
 }
 
 function scrollToSection(e) {
@@ -40,7 +40,6 @@ function scrollToSection(e) {
     allSections.forEach((sectionElement) => {
         if(sectionElement.getAttribute('data-nav') === e.target.innerText) {
             document.getElementById(sectionElement.getAttribute('id')).scrollIntoView({behavior: "smooth", block: "start"} );
-            console.log(sectionElement.getAttribute('id'));
         }
     });
 }
@@ -61,7 +60,7 @@ function createNavigation() {
         let anchor = document.createElement('a');
 
         li.setAttribute('id', menuItem);
-        menuItem === 'Welcome' ? anchor.setAttribute('class', 'is-active') : anchor.setAttribute('class', 'none');
+        menuItem === 'Welcome' ? anchor.setAttribute('class', 'is-active') : anchor.setAttribute('class', ' ');
 
         li.appendChild(anchor);
         navigation.appendChild(li);
