@@ -73,8 +73,21 @@ function createNavigation() {
 }
 
 // Add class 'active' to section when near top of viewport
-function setActive() {
+function isSectionNearTop(sectionElement) {
 
+    const section = sectionElement.getBoundingClientRect();
+    const headerHeight = document.querySelector(".page__header").offsetHeight;
+
+    if(section.top <= headerHeight + 50 && section.top >= 0 && section.bottom > 100) {
+        const lastActive = document.querySelector('.is-active');
+        const menuItemName = sectionElement.getAttribute('data-nav');
+        const newActive = document.getElementById(menuItemName).children[0];
+
+        if(lastActive.parentElement.id !== menuItemName) {
+            lastActive.classList.remove('is-active');
+            newActive.classList.add('is-active');
+        }
+    }
 }
 
 // Scroll to anchor ID using scrollTO event
@@ -82,6 +95,12 @@ function scrollToAnchor(e) {
 
     toggleMenuItemActive(e);
     scrollToSection(e);
+}
+
+function scrollPage(e) {
+    allSections.forEach((sectionElement) => {
+        isSectionNearTop(sectionElement);
+    });
 }
 
 /**
@@ -97,4 +116,4 @@ document.addEventListener('DOMContentLoaded', createNavigation);
 document.querySelector('#navbar__list').addEventListener('click', scrollToAnchor)
 
 // Set sections as active
-//document.addEventListener('scroll', scrollPage);
+document.addEventListener('wheel', scrollPage);
