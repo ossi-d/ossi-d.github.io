@@ -116,4 +116,4 @@ document.addEventListener('DOMContentLoaded', createNavigation);
 document.querySelector('#navbar__list').addEventListener('click', scrollToAnchor)
 
 // Set sections as active
-document.addEventListener('wheel', scrollPage);
+document.addEventListener('scroll', scrollPage);
